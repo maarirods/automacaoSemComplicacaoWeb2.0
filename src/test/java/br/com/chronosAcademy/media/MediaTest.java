@@ -15,7 +15,7 @@ public class MediaTest {
     }
 
     @Test
-    public void validaAprovado(){
+    public void validaReprovado(){
         Media media = new Media();
         String resultado = media.calculaMedia(4.9, 5.0);
         assertEquals("Reprovado", resultado);
