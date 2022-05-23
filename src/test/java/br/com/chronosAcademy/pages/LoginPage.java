@@ -44,8 +44,7 @@ public class LoginPage {
         return  loginMap.btnSignInp.isEnabled();
     }
 
-
-
-
-
+    public void clickBtnFechar() {
+        loginMap.btnFechar.click();
+    }
 }
