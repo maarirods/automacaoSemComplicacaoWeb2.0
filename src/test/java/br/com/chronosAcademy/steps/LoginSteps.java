@@ -3,6 +3,7 @@ package br.com.chronosAcademy.steps;
 import br.com.chronosAcademy.core.Driver;
 import br.com.chronosAcademy.enums.Browser;
 import br.com.chronosAcademy.pages.LoginPage;
+import br.com.chronosAcademy.pages.NewAccountPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
@@ -30,6 +31,8 @@ public class LoginSteps {
         Driver.getDriver().get("https://www.advantageonlineshopping.com/");
         loginPage = new LoginPage();
         loginPage.clickBtnLogin();
+        loginPage.visibilityOfBtnFechar();
+        loginPage.aguardaLoader();
     }
 
     @Quando("for realizado um clique fora da modal")
@@ -41,13 +44,13 @@ public class LoginSteps {
     public void aJanelaModalDeveSerFechada() throws Exception {
         try {
             loginPage.invisibilityOfBtnFechar();
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("A janela modal nao foi fechada");
         }
 
     }
 
-    @Quando("for realizado um clique no icone de fechar")
+    @Quando("for realizado um clique no icone de fechar da modal")
     public void forRealizadoUmCliqueNoIconeDeFecharDaModal() {
         loginPage.clickBtnFechar();
     }
@@ -57,9 +60,10 @@ public class LoginSteps {
         loginPage.clickLinkCreateAccount();
     }
 
-    @Entao("a pagina Create new Account deve ser exibida")
-    public void aPaginaCreateAccountDeveSerExibida() {
-
+    @Entao("a pagina Create New Account deve ser exibida")
+    public void aPaginaCreateNewAccountDeveSerExibida() {
+        NewAccountPage newAccountPage = new NewAccountPage();
+        Assert.assertEquals("CREATE ACCOUNT", newAccountPage.getTextNewAccount());
     }
 
     @Quando("os campos de login sejam preenchidos da seguinte forma")
@@ -67,9 +71,13 @@ public class LoginSteps {
         String username = map.get("login");
         String password = map.get("password");
         boolean remember = Boolean.parseBoolean(map.get("remember"));
+        if (username != null) {
+            loginPage.setInpUserName(username);
+        }
 
-        loginPage.setInpUserName(username);
-        loginPage.setInpPassword(password);
+        if (password != null) {
+            loginPage.setInpPassword(password);
+        }
 
         if (remember) loginPage.clickInpRemember();
     }

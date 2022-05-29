@@ -50,12 +50,16 @@ public class LoginPage {
         return loginMap.btnSignInp.isEnabled();
     }
 
-    public void visibilityOfBtnFechar(){
+    public void visibilityOfBtnFechar() {
         Driver.visibilityOf(loginMap.btnFechar);
     }
 
-    public void invisibilityOfBtnFechar(){
+    public void invisibilityOfBtnFechar() {
         Driver.invisibilityOf(loginMap.btnFechar);
+    }
+
+    public void aguardaLoader() {
+        Driver.attributeChange(loginMap.divLoader, "display", "none");
     }
 
 }

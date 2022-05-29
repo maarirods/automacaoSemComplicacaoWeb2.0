@@ -18,7 +18,9 @@ public class LoginMap {
     public WebElement btnSignInp;
     @FindBy(css = "*[name='remember_me']")
     public WebElement inpRemember;
-    @FindBy(linkText = "CREATE NEW ACCOUNT" )
+    @FindBy(linkText = "CREATE NEW ACCOUNT")
     public WebElement linkCreateAccount;
+    @FindBy(css = ".loader")
+    public WebElement divLoader;
 
 }
