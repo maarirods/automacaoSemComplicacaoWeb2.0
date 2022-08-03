@@ -12,6 +12,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -86,8 +87,8 @@ public class Driver {
         numPrint++;
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String caminho = diretorio.getPath() + "/" + numPrint + "-" + passo + ".png";
+
         FileUtils.copyFile(file, new File(caminho));
     }
-
 
 }
