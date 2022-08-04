@@ -11,11 +11,12 @@ public class MyAccountMap {
     public WebElement linkMyAccount;
     @FindBy(css = "a[href='#/accountDetails']")
     public WebElement linkEdit;
-    @FindBy(css = "#myAccountContainer > div:nth-child(1) > div > div:nth-child(1) > label")
-    public WebElement textUsuario;
+
     @FindBy(css = ".deleteMainBtnContainer")
     public WebElement btnDelete;
     @FindBy(css = ".deleteRed")
     public WebElement btnYes;
+    @FindBy(css = ".modificationTwo > p" )
+    public WebElement textDelete;
 
 }
