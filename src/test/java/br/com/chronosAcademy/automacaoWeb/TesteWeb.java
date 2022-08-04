@@ -23,7 +23,7 @@ public class TesteWeb {
     public void inicializaTeste() {
         driverWeb = new Driver(Browser.CHROME);
         driver = driverWeb.getDriver();
-        driver.get("https://chronosacademy.com.br");
+        driver.get("https://www.chronosacademy.com.br");
         principalPage = new PrincipalPage(driver);
     }
 

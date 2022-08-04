@@ -2,7 +2,6 @@ package br.com.chronosAcademy.pages;
 
 import br.com.chronosAcademy.core.Driver;
 import br.com.chronosAcademy.maps.NewAccountMap;
-import io.cucumber.java.eo.Se;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 

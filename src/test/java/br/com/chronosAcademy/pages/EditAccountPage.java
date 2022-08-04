@@ -3,26 +3,27 @@ package br.com.chronosAcademy.pages;
 import br.com.chronosAcademy.core.Driver;
 import br.com.chronosAcademy.maps.EditAccountMap;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class EditAccountPage {
-    EditAccountMap editAccountMAp;
+    EditAccountMap editAccountMap;
 
     public EditAccountPage() {
-        editAccountMAp = new EditAccountMap();
-        PageFactory.initElements(Driver.getDriver(), editAccountMAp);
+        editAccountMap = new EditAccountMap();
+        PageFactory.initElements(Driver.getDriver(), editAccountMap);
     }
 
-    public void setFirstName(String firstName) {
-        Driver.visibilityOf(editAccountMAp.inpFirstName);
-        editAccountMAp.inpFirstName.sendKeys(firstName);
+    public void setFirstName(String firstName){
+        Driver.visibilityOf(editAccountMap.inpFirstName);
+        editAccountMap.inpFirstName.sendKeys(firstName);
     }
 
-    public void setLastName(String lastName) {
-        editAccountMAp.inpLastName.sendKeys(lastName);
+    public void setLastName(String lastName){
+        editAccountMap.inpLastName.sendKeys(lastName);
     }
 
-    public void clickBtnSave() {
-        editAccountMAp.btnSave.click();
+    public void clickBtnSave(){
+        Driver.aguardaOptions(new Select(editAccountMap.slcCountry));
+        editAccountMap.btnSave.click();
     }
-
 }
